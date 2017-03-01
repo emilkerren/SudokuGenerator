@@ -69,6 +69,37 @@ public class Main extends Application {
     }
 
     private void removeNumbersOfFinishedBoard() {
+        for (int i = 0; i < 4; i++) {
+            int _i = i;
+            int randomIndex = ThreadLocalRandom.current().nextInt(numbers.size());
+            List<Integer> twoRandomNumbers = new ArrayList<>();
+            for (int j = 0; j < 2; j++) {
+                int number = numbers.get(randomIndex);
+                twoRandomNumbers.add(number);
+            }
+
+        cells.stream().filter(cellX -> cellX.x == _i).forEach(cell -> {
+            if (twoRandomNumbers.contains(Integer.valueOf(cell.text.getText()))) {
+                cell.text.setText("");
+            }
+        });
+        }
+
+        for (int i = 0; i < 4; i++) {
+            int _i = i;
+            int randomIndex = ThreadLocalRandom.current().nextInt(numbers.size());
+            List<Integer> twoRandomNumbers = new ArrayList<>();
+            for (int j = 0; j < 2; j++) {
+                int number = numbers.get(randomIndex);
+                twoRandomNumbers.add(number);
+            }
+
+            cells.stream().filter(cellY -> cellY.y == _i).forEach(cell -> {
+                if (cell.text.getText() != "" && twoRandomNumbers.contains(Integer.valueOf(cell.text.getText()))) {
+                    cell.text.setText("");
+                }
+            });
+        }
 
     }
 
