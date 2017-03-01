@@ -24,8 +24,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-//        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-
         numbers.add(0);
         numbers.add(1);
         numbers.add(2);
@@ -100,7 +98,6 @@ public class Main extends Application {
                 }
             });
         }
-
     }
 
     private boolean generateBoard() {
